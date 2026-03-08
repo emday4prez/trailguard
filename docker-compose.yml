@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: trailguard-db
+    environment:
+      POSTGRES_USER: trailguard_user
+      POSTGRES_PASSWORD: secretpassword
+      POSTGRES_DB: trailguard
+    ports:
+      - "5432:5432"
+    volumes:
+      - trailguard-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: trailguard-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - trailguard-redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  trailguard-db-data:
+  trailguard-redis-data:
