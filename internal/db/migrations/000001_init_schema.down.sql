@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS watchers;
+DROP TABLE IF EXISTS permit_rules;
+DROP TABLE IF EXISTS locations;
+DROP TABLE IF EXISTS users;
